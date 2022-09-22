@@ -1,4 +1,4 @@
-import Fighter from './Fighter';
+import Fighter, { SimpleFighter } from './Fighter';
 import Race, { Elf } from './Races';
 import Archetype, { Mage } from './Archetypes';
 import Energy from './Energy';
@@ -64,7 +64,7 @@ export default class Character implements Fighter {
     return this._lifePoints;
   }
 
-  public attack(enemy: Fighter): void {
+  public attack(enemy: SimpleFighter): void {
     const attack = this._strength;
     enemy.receiveDamage(attack);
   }
@@ -85,7 +85,7 @@ export default class Character implements Fighter {
     this._lifePoints = this._maxLifePoints;
   }
 
-  public special(enemy: Fighter): void {
+  public special(enemy: SimpleFighter): void {
     const SpecialAttack = this._strength * 5;
 
     enemy.receiveDamage(SpecialAttack);
